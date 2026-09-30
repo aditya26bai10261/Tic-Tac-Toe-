@@ -1,61 +1,78 @@
-    def show(a):
-        print()
-        print(a[0], "|", a[1], "|", a[2])
-        print("--+---+--")
-        print(a[3], "|", a[4], "|", a[5])
-        print("--+---+--")
-        print(a[6], "|", a[7], "|", a[8])
-        print()
+# Tic Tac Toe
 
+## Project Overview
 
-    def check(a, p):
-        lines = [(0,1,2), (3,4,5), (6,7,8),
-                (0,3,6), (1,4,7), (2,5,8),
-                (0,4,8), (2,4,6)]
+Tic Tac Toe is a simple two-player game developed using Python. The game is played on a 3 x 3 board through the terminal.
 
-        for x, y, z in lines:
-          if a[x] == p and a[y] == p and a[z] == p:
-            return True
-        return False
+Players take turns choosing positions from 1 to 9. The program checks the move, updates the board and checks for a winner or a draw.
 
+## Features
 
-    a = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    p = "X"
-    moves = 0
+- Two-player gameplay
+- 3 x 3 board
+- Player X and Player O
+- Input validation
+- Prevention of repeated positions
+- Win detection
+- Draw detection
+- Score tracking
+- Replay option
 
-    print("TIC TAC TOE")
+## Technology Used
 
-    while True:
-        show(a)
+- Python 3
+- Python lists
+- Functions
+- Loops
+- Conditional statements
 
-        try:
-           n = int(input("Player " + p + ", enter position: ")) - 1
-        except ValueError:
-           print("Enter a number.")
-           continue
+No external libraries are required.
 
-        if n < 0 or n > 8:
-           print("Choose between 1 and 9.")
-           continue
+## Project File
 
-        if a[n] == "X" or a[n] == "O":
-           print("This place is already used.")
-           continue
+The complete game is written in one Python file:
 
-        a[n] = p
-        moves = moves + 1
+`tic_tac_toe.py`
 
-        if check(a, p):
-           show(a)
-           print("Player", p, "wins!")
-           break
+The program contains functions for displaying the board, checking winning combinations, validating player positions, running the game and maintaining the score.
 
-        if moves == 9:
-           show(a)
-           print("It's a draw!")
-           break
+## How to Run
 
-        if p == "X":
-           p = "O"
-        else:
-           p = "X"
+1. Install Python 3.
+2. Open a terminal in the project folder.
+3. Run:
+
+```bash
+python tic_tac_toe.py
+```
+
+4. Enter a position from 1 to 9 when asked.
+5. Follow the instructions shown in the terminal.
+
+## Example Board
+
+```text
+ 1 | 2 | 3
+---+---+---
+ 4 | 5 | 6
+---+---+---
+ 7 | 8 | 9
+```
+
+## Testing
+
+The program can be tested manually by:
+- Entering a valid position.
+- Entering a letter instead of a number.
+- Entering a number outside 1 to 9.
+- Selecting an occupied position.
+- Completing a winning row, column or diagonal.
+- Filling the board without a winner to test a draw.
+- Playing multiple rounds to check the score.
+
+## Future Improvements
+
+- Add a single-player mode.
+- Add a computer opponent.
+- Add a graphical interface.
+- Save scores between program runs.
